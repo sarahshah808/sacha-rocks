@@ -6,7 +6,7 @@
 <title>Sacha Rocks - Around the World</title>
 <meta name="description" content="Painted rocks hidden around the world in memory of Sacha. Found one? Add it to the map.">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#e86ca0">
+<meta name="theme-color" content="#2e9e63">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Sacha Rocks">
@@ -16,7 +16,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
   :root {
-    --pink: #e86ca0;
+    --pink: #2e9e63;
     --teal: #2ab3a6;
     --yellow: #f5b942;
     --purple: #8b6fc9;
@@ -32,7 +32,7 @@
   header {
     text-align: center;
     padding: 24px 16px 16px;
-    background: linear-gradient(135deg, #fce4ef 0%, #e0f5f3 50%, #fdf3dd 100%);
+    background: linear-gradient(135deg, #e3f5ea 0%, #e0f5f3 50%, #fdf3dd 100%);
   }
   header h1 { font-size: 1.9rem; letter-spacing: 0.5px; }
   header h1 span { color: var(--pink); }
@@ -49,7 +49,7 @@
     padding: 14px 30px;
     border-radius: 999px;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(232,108,160,0.45);
+    box-shadow: 0 4px 12px rgba(46,158,99,0.45);
   }
   .found-btn:active { transform: scale(0.97); }
   .fb-link {
@@ -294,17 +294,11 @@ const ENTRY = {
 const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSBRNMcyeGDNPrZ--TMfQYf-1KnqDAYFQr-R4TeCfzImX1WGeEvAVloRuLinTlbGKXeZpWm49av609n/pub?output=csv";
 // Historic finds (from Lisa's records) get baked in here:
 const HISTORIC_FINDS = [];
-// Demo pins shown only while HISTORIC_FINDS is empty and no live data exists:
-const DEMO_FINDS = [
-  { place: "Hastings, United Kingdom", lat: 50.8543, lng: 0.5735, date: "2026-01-14", note: "Demo pin — example only" },
-  { place: "Paris, France", lat: 48.8566, lng: 2.3522, date: "2026-03-05", note: "Demo pin — example only" },
-  { place: "New York, United States", lat: 40.7128, lng: -74.006, date: "2026-04-15", note: "Demo pin — example only" },
-  { place: "Sydney, Australia", lat: -33.8688, lng: 151.2093, date: "2026-05-17", note: "Demo pin — example only" },
-  { place: "Tokyo, Japan", lat: 35.6762, lng: 139.6503, date: "2026-06-09", note: "Demo pin — example only" }
-];
+// Demo pins removed; the map shows only real finds.
+const DEMO_FINDS = [];
 /* ========================================== */
 
-const ROCK_COLORS = ["#e86ca0", "#2ab3a6", "#f5b942", "#8b6fc9", "#f0834f"];
+const ROCK_COLORS = ["#2e9e63", "#2ab3a6", "#f5b942", "#8b6fc9", "#f0834f"];
 const COUNTRY_MILESTONES = [5, 10, 15, 20, 25, 30, 40, 50];
 const FIND_MILESTONES = [10, 25, 50, 100, 250, 500];
 
