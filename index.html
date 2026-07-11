@@ -252,6 +252,18 @@
 
 <div class="toast" id="toast"></div>
 
+<!-- After-find modal: send them to the Facebook group -->
+<div class="overlay" id="fbOverlay">
+  <div class="modal">
+    <h3>Your find is on the map!</h3>
+    <p>Two more lovely things to do: post a photo of your rock in the Sacha Rocks Facebook group so his family sees it, then hide the rock somewhere new for the next person.</p>
+    <div class="row">
+      <button class="cancel" id="fbClose">Done</button>
+      <a href="https://www.facebook.com/groups/1154829983097390" target="_blank" rel="noopener" style="flex:1;text-align:center;text-decoration:none;padding:11px;border-radius:10px;background:#1877f2;color:#fff;font-weight:700;font-size:0.95rem;">Post your photo</a>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ================= CONFIG ================= */
 const FORM_ID = "1FAIpQLScfFIKC7qyT_j2zCBvJw2s6_y8Rvi_0HfcSwQOad6Hpb5hJlA";
@@ -481,6 +493,7 @@ document.getElementById("foundBtn").addEventListener("click", () => {
 });
 
 document.getElementById("mCancel").addEventListener("click", () => overlay.classList.remove("show"));
+document.getElementById("fbClose").addEventListener("click", () => document.getElementById("fbOverlay").classList.remove("show"));
 document.getElementById("mSubmit").addEventListener("click", async () => {
   const place = document.getElementById("mPlace").value.trim();
   if (!place) { document.getElementById("mPlace").focus(); return; }
@@ -497,7 +510,7 @@ document.getElementById("mSubmit").addEventListener("click", async () => {
     addPin(find, finds.length - 1);
     refresh();
     map.setView([find.lat, find.lng], 6);
-    showToast("Your find is on the map! Now hide the rock somewhere new…", 5000);
+    document.getElementById("fbOverlay").classList.add("show");
   } catch (e) {
     showToast("Something went wrong — please try again.");
   }
