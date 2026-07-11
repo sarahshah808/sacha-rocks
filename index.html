@@ -204,6 +204,8 @@
   <p>Painted with love, hidden around the world. Find one, share it, hide it again.</p>
   <button class="found-btn" id="foundBtn">I found a rock here!</button><br>
   <a class="fb-link" href="https://www.facebook.com/groups/1154829983097390" target="_blank" rel="noopener">Join the Sacha Rocks Facebook group →</a>
+  <span style="color:#c9c3d8;margin:0 6px;">·</span>
+  <a class="fb-link" href="#" id="storyLink" style="color:var(--purple);">Sacha's story</a>
 </header>
 
 <div class="stats">
@@ -251,6 +253,21 @@
 </div>
 
 <div class="toast" id="toast"></div>
+
+<!-- Sacha's story modal -->
+<div class="overlay" id="storyOverlay">
+  <div class="modal" style="max-height:80vh;overflow-y:auto;">
+    <h3>Sacha's story</h3>
+    <p style="margin-bottom:8px;">These rocks are painted in loving memory of Sacha, who passed away in June 2024 at just 3 years and 9 months old, after a courageous battle with a rare immunodeficiency disease called NEMO.</p>
+    <p style="margin-bottom:8px;">Sacha loved books. At home and in hospital, he would get everyone to read to him, so most of the rocks are painted as his favourite storybook characters, especially from the Julia Donaldson books he adored.</p>
+    <p style="margin-bottom:8px;">His family and friends paint the rocks and hide them wherever life takes them, hoping they will travel far and wide, keeping Sacha's spirit alive and bringing smiles to faces all over the world.</p>
+    <p style="margin-bottom:8px;">If you found one: you're now part of his journey. Add your find to the map, share a photo in the Facebook group so his family sees how far he's travelled, then hide the rock somewhere new.</p>
+    <p style="margin-bottom:2px;"><a href="https://www.sachasjourney.co.uk" target="_blank" rel="noopener" style="color:var(--purple);font-weight:600;">Meet Sacha at sachasjourney.co.uk →</a></p>
+    <div class="row">
+      <button class="cancel" id="storyClose" style="flex:1;">Close</button>
+    </div>
+  </div>
+</div>
 
 <!-- After-find modal: send them to the Facebook group -->
 <div class="overlay" id="fbOverlay">
@@ -494,6 +511,8 @@ document.getElementById("foundBtn").addEventListener("click", () => {
 
 document.getElementById("mCancel").addEventListener("click", () => overlay.classList.remove("show"));
 document.getElementById("fbClose").addEventListener("click", () => document.getElementById("fbOverlay").classList.remove("show"));
+document.getElementById("storyLink").addEventListener("click", e => { e.preventDefault(); document.getElementById("storyOverlay").classList.add("show"); });
+document.getElementById("storyClose").addEventListener("click", () => document.getElementById("storyOverlay").classList.remove("show"));
 document.getElementById("mSubmit").addEventListener("click", async () => {
   const place = document.getElementById("mPlace").value.trim();
   if (!place) { document.getElementById("mPlace").focus(); return; }
