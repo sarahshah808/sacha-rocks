@@ -823,8 +823,8 @@ function continentOf(place) {
 
 let finds = [];
 const map = L.map("map", { worldCopyJump: true }).setView([25, 10], 2);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: '&copy; OpenStreetMap contributors', maxZoom: 18
+L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+  attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors', maxZoom: 18
 }).addTo(map);
 
 function rockIcon(i) {
