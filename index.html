@@ -942,10 +942,12 @@ function expandFinds(list) {
   return out;
 }
 async function init() {
-  const live = await loadLiveFinds();
-  finds = expandFinds(HISTORIC_FINDS).concat(live);
+  finds = expandFinds(HISTORIC_FINDS);
   finds.forEach(addPin);
   refresh();
+  const live = await loadLiveFinds();
+  live.forEach(f => { finds.push(f); addPin(f, finds.length - 1); });
+  if (live.length) refresh();
 }
 init();
 
