@@ -845,9 +845,11 @@ L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_M
 }).addTo(map);
 
 JOURNEYS.forEach(j => {
+  const popup = "<b>" + j.name + "</b><br>A travelling rock: " + j.route;
   L.polyline(j.points, { color: "#8b6fc9", weight: 2.5, dashArray: "6 9", opacity: 0.75 })
-    .addTo(map)
-    .bindPopup("<b>" + j.name + "</b><br>A travelling rock: " + j.route);
+    .addTo(map).bindPopup(popup);
+  L.polyline(j.points, { color: "#8b6fc9", weight: 22, opacity: 0.02 })
+    .addTo(map).bindPopup(popup);
 });
 
 function rockIcon(i) {
