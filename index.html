@@ -81,6 +81,7 @@
   .stat:nth-child(1) .num { color: var(--pink); }
   .stat:nth-child(2) .num { color: var(--teal); }
   .stat:nth-child(3) .num { color: var(--purple); }
+  .stat:nth-child(4) .num { color: #e09c1a; }
   .stat .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: #8a85a0; }
   .milestone-bar { max-width: 560px; margin: 0 auto; padding: 6px 16px 14px; text-align: center; }
   .milestone-bar .track { background: #ece7f5; border-radius: 999px; height: 14px; overflow: hidden; margin-top: 6px; }
@@ -212,6 +213,7 @@
   <div class="stat"><div class="num" id="statFinds">0</div><div class="label">Rocks found</div></div>
   <div class="stat"><div class="num" id="statCountries">0</div><div class="label">Countries</div></div>
   <div class="stat"><div class="num" id="statContinents">0</div><div class="label">Continents</div></div>
+  <div class="stat"><div class="num" id="statJourneys">0</div><div class="label">Travelling rocks</div></div>
 </div>
 
 <div class="milestone-bar">
@@ -880,6 +882,7 @@ function refresh() {
   document.getElementById("statFinds").textContent = finds.length;
   document.getElementById("statCountries").textContent = countries.size;
   document.getElementById("statContinents").textContent = continents.size;
+  document.getElementById("statJourneys").textContent = JOURNEYS.length;
 
   const next = COUNTRY_MILESTONES.find(m => m > countries.size);
   const prev = [...COUNTRY_MILESTONES].reverse().find(m => m <= countries.size) || 0;
